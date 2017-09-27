@@ -26,7 +26,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use('/', index);
+app.use('/synth', express.static(path.join(__dirname, 'public')));
+app.use('/crypto', express.static(path.join(__dirname, 'public')));
+app.use('/sequencer', express.static(path.join(__dirname, 'public')));
+app.use('/about', express.static(path.join(__dirname, 'public')));
+
 app.use('/users', users);
 app.use('/api/crypto', crypto);
 app.use('/coin-icon', express.static(path.join(__dirname, 'node_modules/cryptocoins-icons/SVG')))
