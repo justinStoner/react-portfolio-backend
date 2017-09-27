@@ -11,6 +11,7 @@ var debug = require('debug')('react-backend:server');
 var http = require('http');
 var https = require('https');
 var bittrex = require('node.bittrex.api');
+const fs = require('fs');
 var approveDomains = require("../utils").approveDomains;
 
 if (process.env.NODE_ENV !== 'production') {
@@ -22,6 +23,7 @@ if(process.env.NODE_ENV ===  'production'){
     cert: fs.readFileSync('../sslcert/fullchain.pem'),
     key: fs.readFileSync('../sslcert/privkey.pem')
   };
+  console.log(options);
   app.listen(80);
   var server = https.createServer(options, app).listen(443);
 
