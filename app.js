@@ -25,6 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('helmet')());
 
 app.use('/synth', express.static(path.join(__dirname, 'public')));
 app.use('/crypto', express.static(path.join(__dirname, 'public')));
