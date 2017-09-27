@@ -67,12 +67,12 @@ function stopTicker() {
 }
 function startTicker () {
   tickerActive=true;
-  intervalId = setInterval( () => {
+  intervalID = setInterval( () => {
     bittrex.getmarketsummaries( function( data, err ) {
       if (err) {
         return console.error(err);
       }
-      //console.log(data);
+      console.log(data);
       lastTicker=data;
     });
   }, 5000)
