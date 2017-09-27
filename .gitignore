@@ -1,5 +1,5 @@
 node_modules
 .env
-public/.wellknown
+public/.well-known
 sllcert
 public
