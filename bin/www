@@ -16,22 +16,13 @@ var approveDomains = require("../utils").approveDomains;
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').load();
-}
-
-if(process.env.NODE_ENV ===  'production'){
-  const options = {
-    cert: fs.readFileSync('../sslcert/fullchain.pem'),
-    key: fs.readFileSync('../sslcert/privkey.pem')
-  };
-  console.log(options);
-  app.listen(80);
-  var server = https.createServer(options, app).listen(443);
-
-}else{
   var port = normalizePort(process.env.PORT || '80');
   app.set('port', port);
   var server = http.createServer(app);
   server.listen(port);
+}else{
+  app.set('port', 8080);
+  var server = https.createServer(app).listen(8080);
 }
 
 
